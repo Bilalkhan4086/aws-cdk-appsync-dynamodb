@@ -26,6 +26,14 @@ authorizationConfig:{
     }
   })
 
+  
+  const table2 = new ddb.Table(this,"My_lovely_table",{
+    partitionKey:{
+      name:"id",
+      type:ddb.AttributeType.STRING
+    }
+  })
+
   const dataSource = api.addDynamoDbDataSource('dataSource',table);
 
   dataSource.createResolver({
